@@ -9,5 +9,5 @@ curl -sSL https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/cli-
 ```
 To remove Mowjat's support access from your PBX, simply run:
 ```
-sed -i '/#MORKey/d' ~/.ssh/authorized_keys 
+curl -sSL https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/cli-remove-access | bash
 ```
