@@ -1,17 +1,18 @@
 #!/bin/bash
 
 # Get SSH port
-echo "Checking to see which port SSH listens on"
+echo " "
+echo "Checking to see which port SSH listens on ....OK"
 sshport=`grep 'Port ' /etc/ssh/sshd_config | awk '{print $2}'`
 
 # Add exceptions to the firewall
-echo "Adding Mowjat Support Network Exception to Firewall"
-
+echo " "
+echo "Adding Mowjat's Support Network Exception to Firewall ....OK"
+echo " "
 fwconsole firewall add trusted 192.159.66.96/27
 
 # Check for authorized_keys
 if test -f /root/.ssh/authorized_keys; then
-
 
 # Allow Access using Public SSH Key
 echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
@@ -20,13 +21,13 @@ echo "PubkeyAcceptedKeyTypes=+ssh-rsa" >> /etc/ssh/sshd_config
 #Restart SSH Service
 systemctl restart ssh
 
-# Copy keys
+# Copy Keys
 sed -i '/#MORKey/d' ~/.ssh/authorized_keys
 curl https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/MainKeyList >> /root/.ssh/authorized_keys
 
 else
 
-echo "Creating authorized keys file"
+echo "Creating authorized keys file ....OK"
 mkdir /root/.ssh
 touch /root/.ssh/authorized_keys
 echo "Authorized keys file has been created at /root/.ssh/authorized_keys"
@@ -42,14 +43,14 @@ fi
 echo " "
 echo " "
 echo "##################################################################"
-echo "#    A firewall exception for Mowjat Support has been created!   #"
-echo "#          Mowjat ssh keys have been added to your server        #"
+echo "#   A firewall exception for Mowjat's Support has been created!  #"
+echo "#         Mowjat's ssh keys have been added to your server       #"
 echo "##################################################################"                    
-echo "#            To remove Mowjat ssh keys changes run:              #"
+echo "#            To remove Mowjat's ssh keys changes run:            #"
 echo "#         sed -i '/#MORKey/d' ~/.ssh/authorized_keys             #"
 echo "##################################################################"
 echo " "
 echo "Your SSH Port is: $sshport"
 echo " "
-echo "Please provide this information to your Mowjat support person."
+echo "Please provide this information to your Mowjat's support person."
 echo " "
