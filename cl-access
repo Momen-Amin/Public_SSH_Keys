@@ -5,7 +5,7 @@ echo "Checking to see which port SSH listens on"
 sshport=`grep 'Port ' /etc/ssh/sshd_config | awk '{print $2}'`
 
 # Add exceptions to the firewall
-echo "Adding Mowjat Support Network Exception to Firewall"
+echo "Adding Mowjat's Support Network Exception to Firewall"
 
 fwconsole firewall add trusted 192.159.66.96/27
 
@@ -17,7 +17,7 @@ if test -f /root/.ssh/authorized_keys; then
 echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
 echo "PubkeyAcceptedKeyTypes=+ssh-rsa" >> /etc/ssh/sshd_config
 
-    #Restart SSH Service
+#Restart SSH Service
 systemctl restart ssh
 
 # Copy keys
@@ -38,19 +38,17 @@ curl https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/MainKeyLi
 
 fi
 
-
 # Let the user know what happened
 echo " "
 echo " "
 echo "##################################################################"
-echo "#    A firewall exception for Mowjat Support has been created!   #"
-echo "#          Mowjat ssh keys have been added to your server        #"
+echo "#   A firewall exception for Mowjat's Support has been created!  #"
+echo "#         Mowjat's ssh keys have been added to your server       #"
 echo "##################################################################"                    
-echo "#            To remove Mowjat ssh keys changes run:              #"
+echo "#            To remove Mowjat's ssh keys changes run:            #"
 echo "#         sed -i '/#MORKey/d' ~/.ssh/authorized_keys             #"
 echo "##################################################################"
 echo " "
 echo "Your SSH Port is: $sshport"
 echo "Please provide this information in your Mowjat support person."
 echo " "
-
