@@ -22,7 +22,7 @@ systemctl restart ssh
 
 # Copy keys
 sed -i '/#MORKey/d' ~/.ssh/authorized_keys
-curl https://raw.githubusercontent.com/Momen-Amin/Public-Things/main/Public_SSH_Keys/MainKeyList >> /root/.ssh/authorized_keys
+curl https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/MainKeyList >> /root/.ssh/authorized_keys
 
 else
 
@@ -34,7 +34,7 @@ chmod 600 /root/.ssh/authorized_keys
 chmod 700 /root/.ssh
 
 # Copy keys
-curl https://raw.githubusercontent.com/Momen-Amin/Public-Things/main/Public_SSH_Keys/MainKeyList >> /root/.ssh/authorized_keys
+curl https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/MainKeyList >> /root/.ssh/authorized_keys
 
 fi
 
