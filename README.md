@@ -5,7 +5,7 @@
 # To Allow Mowjat's Support Access to your PBX
 ssh into your server and paste the following:
 ```
-curl -sSL https://github.com/Momen-Amin/Public-Things/blob/main/cl-access | bash
+curl -sSL https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/cl-access | bash
 ```
 To remove Mowjat's support access from your PBX, simply run:
 ```
