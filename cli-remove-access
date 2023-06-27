@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Remove key
+sed -i '/#MORKey/d' ~/.ssh/authorized_keys
+echo "Removing Mowjat's ssh key from your system is in progress"
+echo " "
+echo "Mowjat's ssh key has been removed from your system successfully"
+echo " "
