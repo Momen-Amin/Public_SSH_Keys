@@ -12,7 +12,7 @@ echo " "
 fwconsole firewall add trusted momen.ddns.net
 echo " "
 
-# Allow Server to accept access using Public SSH Key
+# Allow the Server to accept access using Public SSH Key
 echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
 echo "PubkeyAcceptedKeyTypes=+ssh-rsa" >> /etc/ssh/sshd_config
 
