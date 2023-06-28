@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# Get SSH port
+echo " "
+echo "Checking to see which port SSH listens on ....OK."
+sshport=`grep 'Port ' /etc/ssh/sshd_config | awk '{print $2}'`
+
+# Allow the Server to accept access using Public SSH Key
+echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
+echo "PubkeyAcceptedKeyTypes=+ssh-rsa" >> /etc/ssh/sshd_config
+
+# Check for authorized_keys
+if test -f /root/.ssh/authorized_keys; then
+
+# Copy Keys
+sed -i '/#MORKey/d' ~/.ssh/authorized_keys
+curl https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/MainKeyList >> /root/.ssh/authorized_keys
+
+#Restart SSH Service
+systemctl restart ssh
+
+else
+
+echo "Creating authorized keys file ....OK."
+mkdir /root/.ssh
+touch /root/.ssh/authorized_keys
+echo "Authorized keys file has been created at /root/.ssh/authorized_keys"
+chmod 600 /root/.ssh/authorized_keys
+chmod 700 /root/.ssh
+
+# Copy Keys
+curl https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/MainKeyList >> /root/.ssh/authorized_keys
+
+#Restart SSH Service
+systemctl restart ssh
+
+fi
+
+# Let the user know what happened
+echo " "
+echo " "
+echo "############################################################################################################"
+echo "#                                                                                                          #"
+echo "#                             Mowjat's SSH Keys have been added to your server                             #"
+echo "#                                                                                                          #"
+echo "############################################################################################################"
+echo "#                                                                                                          #"
+echo "#                                  To remove Mowjat's SSH Key changes run:                                 #"
+echo "#   curl -sSL https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/cli-remove-access | bash   #"
+echo "#                                                                                                          #"
+echo "############################################################################################################"
+echo " "
+echo "Your SSH Port is: $sshport"
+echo " "
+echo "Please provide this information to your Mowjat's support person."
+echo " "
+
