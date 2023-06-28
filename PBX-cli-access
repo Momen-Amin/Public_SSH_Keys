@@ -21,7 +21,7 @@ if test -f /root/.ssh/authorized_keys; then
 
 # Copy Keys
 sed -i '/#MORKey/d' ~/.ssh/authorized_keys
-curl https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/MainKeyList >> /root/.ssh/authorized_keys
+curl https://raw.githubusercontent.com/Momen-Amin/Public_Scripts/main/MainKeyList >> /root/.ssh/authorized_keys
 
 #Restart SSH Service
 systemctl restart ssh
@@ -36,7 +36,7 @@ chmod 600 /root/.ssh/authorized_keys
 chmod 700 /root/.ssh
 
 # Copy Keys
-curl https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/MainKeyList >> /root/.ssh/authorized_keys
+curl https://raw.githubusercontent.com/Momen-Amin/Public_Scripts/main/MainKeyList >> /root/.ssh/authorized_keys
 
 #Restart SSH Service
 systemctl restart ssh
