@@ -17,7 +17,8 @@ curl -sSL https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/Serv
 ```
 
 
-To remove Mowjat's support access from your Server, simply run the following command:
+# To remove Mowjat's support access from your Server, simply run the following command:
+SSH into your Server and paste the following command:
 ```
 curl -sSL https://raw.githubusercontent.com/Momen-Amin/Public_SSH_Keys/main/cli-remove-access | bash
 ```
