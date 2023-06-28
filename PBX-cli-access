@@ -5,7 +5,7 @@ echo " "
 echo "Checking to see which port SSH listens on ....OK."
 sshport=`grep 'Port ' /etc/ssh/sshd_config | awk '{print $2}'`
 
-# Add exceptions to the firewall
+# Add exceptions to the PBX Firewall
 echo " "
 echo "Adding Mowjat's Support Network Exception to the PBX Firewall ....OK."
 echo " "
