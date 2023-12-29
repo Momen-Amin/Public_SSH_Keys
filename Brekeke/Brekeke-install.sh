@@ -108,7 +108,7 @@ systemctl daemon-reload
 fi
 
 # mv $BASE_DIR/$POSTGRESQL_FILE $TOMCAT_DIR/webapps/sip/WEB-INF/lib/
-mv $BASE_DIR/$POSTGRESQL_FILE /opt/brekeke/tomcat/webapps/sip/WEB-INF/lib/
+mv $BASE_DIR/$POSTGRESQL_FILE /opt/brekeke/tomcat/webapps/sip/WEB-INF/lib/postgresql-42.7.1.jar
 
 # Start and enable Tomcat service
 systemctl enable brekeke.service
