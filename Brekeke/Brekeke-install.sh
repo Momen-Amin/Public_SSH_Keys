@@ -108,7 +108,7 @@ systemctl daemon-reload
 fi
 
 # mv $BASE_DIR/$POSTGRESQL_FILE $TOMCAT_DIR/webapps/sip/WEB-INF/lib/
-mv $BASE_DIR/$POSTGRESQL_FILE /opt/brekeke/tomcat/webapps/sip/WEB-INF/lib/postgresql-42.7.1.jar
+mv /opt/brekeke/postgresql-42.7.1.jar /opt/brekeke/tomcat/webapps/sip/WEB-INF/lib/postgresql-42.7.1.jar
 
 # Start and enable Tomcat service
 systemctl enable brekeke.service
@@ -117,7 +117,7 @@ systemctl restart brekeke.service
 
 # Print the URL with a nice border
 echo "##########################################################"
-echo "##                                                      ##"
+echo "##                                                       ##"
 echo "##   URL to open: http://$(hostname -I | awk '{print $1}'):$PORT/sip/gate   ##"
-echo "##                                                      ##"
+echo "##                                                       ##"
 echo "##########################################################"
