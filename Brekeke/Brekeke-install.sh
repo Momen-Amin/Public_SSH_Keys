@@ -107,13 +107,11 @@ WantedBy=multi-user.target
 systemctl daemon-reload
 fi
 
-mv $BASE_DIR/$POSTGRESQL_FILE $TOMCAT_DIR/webapps/sip/WEB-INF/lib
+mv $BASE_DIR/$POSTGRESQL_FILE $TOMCAT_DIR/webapps/sip/WEB-INF/lib/
 
 # Start and enable Tomcat service
 systemctl enable brekeke.service
 systemctl start brekeke.service
-
-mv $BASE_DIR/$POSTGRESQL_FILE $TOMCAT_DIR/webapps/sip/WEB-INF/lib
 systemctl restart brekeke.service
 
 # Print the URL with a nice border
