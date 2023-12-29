@@ -116,8 +116,8 @@ systemctl start brekeke.service
 systemctl restart brekeke.service
 
 # Print the URL with a nice border
-echo "#########################################################"
-echo "##                                                     ##"
+echo "##########################################################"
+echo "##                                                      ##"
 echo "##   URL to open: http://$(hostname -I | awk '{print $1}'):$PORT/sip/gate   ##"
-echo "##                                                     ##"
-echo "#########################################################"
+echo "##                                                      ##"
+echo "##########################################################"
